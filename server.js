@@ -8,7 +8,7 @@ server.on('request', function(req, res) {
   stream.pipe(res);
 });
 var io = require('socket.io').listen(server);
-server.listen(8000);
+server.listen(process.env.PORT || 5000);
 
 io.sockets.on('connection', function(socket) {
   socket.emit('greeting', { message: 'hello, '}, function(data) {
