@@ -8,14 +8,23 @@ window.onload = function(){
 
   window.addEventListener('devicemotion', function(e){
     gravity = e.accelerationIncludingGravity;
-
+/*
     output.innerHTML
     = 'x: '+gravity.x
     + '<br>y: '+gravity.y;
-
+*/
     sendModeFromGravityValue(gravity);
 
   },true);
+  $("body").click(function(){
+    console.log("click");
+    currentMode = 'landscape';
+    socket.send({mode: currentMode});
+  });
+  
+  socket.on('event', function (data) {
+     console.log(data);
+  });
 
   function sendModeFromGravityValue(g){
 

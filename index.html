@@ -36,7 +36,11 @@
   window.onload = function(){
     //backgroundだけ描画したい
     init();
-
+    var socket = io({port: 5000});
+    socket.connect();
+    socket.on('event', function (data) {
+      console.log(data);
+    });
 
 //    var milkcocoa = new MilkCocoa("applein31pnvb.mlkcca.com");
 //    var ds = milkcocoa.dataStore('gravity');
