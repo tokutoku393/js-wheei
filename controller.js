@@ -3,7 +3,7 @@ window.onload = function(){
   var currentMode = 'portrait';
   var output = document.getElementById('output');
 
-  var socket = new io.Socket(false, {port:5000});
+  var socket = io({port: 5000});
   socket.connect();
 
   window.addEventListener('devicemotion', function(e){
