@@ -10,14 +10,9 @@ server.listen(5000);
 
 app.use(express.static(__dirname));
 
-io.on('connection', function(socket) {
-  socket.on("message", function(sent){
-    console.log(sent);
-    if(sent.value.mode === 'portrait'){
-      //
-    }
-    if(sent.value.mode === 'landscape'){
-      createjs.Ticker.addEventListener("tick", update);
-    }
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
   });
 });
