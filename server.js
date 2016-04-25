@@ -11,13 +11,9 @@ server.listen(5000);
 app.use(express.static(__dirname));
 
 io.on('connection', function(socket) {
+  socket.join('single');
   socket.on("message", function(sent){
     console.log(sent);
-    if(sent.value.mode === 'portrait'){
-      //
-    }
-    if(sent.value.mode === 'landscape'){
-      createjs.Ticker.addEventListener("tick", update);
-    }
+    socket.to('single').emit('event', { mode: sent.mode });
   });
 });
