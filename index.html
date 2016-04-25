@@ -40,6 +40,9 @@
     socket.connect();
     socket.on('event', function (data) {
       console.log(data);
+      if(data.mode === 'landscape'){
+        createjs.Ticker.addEventListener("tick", update);
+      }
     });
 
 //    var milkcocoa = new MilkCocoa("applein31pnvb.mlkcca.com");

@@ -17,7 +17,6 @@ window.onload = function(){
 
   },true);
   $("body").click(function(){
-    console.log("click");
     currentMode = 'landscape';
     socket.send({mode: currentMode});
   });

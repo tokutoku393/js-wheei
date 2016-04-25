@@ -14,6 +14,6 @@ io.on('connection', function(socket) {
   socket.join('single');
   socket.on("message", function(sent){
     console.log(sent);
-    socket.to('single').emit('event', { my: sent.mode });
+    socket.to('single').emit('event', { mode: sent.mode });
   });
 });
