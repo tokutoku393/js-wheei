@@ -36,7 +36,7 @@
   window.onload = function(){
     //backgroundだけ描画したい
     init();
-    var socket = io({port: 5000});
+    var socket = io();
     socket.connect();
     socket.on('event', function (data) {
       console.log(data);
