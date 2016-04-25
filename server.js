@@ -9,6 +9,10 @@ app.use(express.logger('dev'));
 app.use(express.compress());
 app.use(express.static(__dirname));
 
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+
 app.listen(app.get('port'), function() {
   console.log('Server listening on port %s', app.get('port'));
 });
@@ -26,16 +30,15 @@ server.on('request', function(req, res) {
 });
 */
 
-//var io = require('socket.io').listen(server);
-//server.listen(process.env.PORT || 5000);
 
-//io.sockets.on('connection', function(socket) {
-//  socket.on("mode", function(sent){
-//    if(sent.value.mode === 'portrait'){
+io.on('connection', function(socket) {
+  socket.on("message", function(sent){
+    console.log(sent);
+    if(sent.value.mode === 'portrait'){
       //
-//    }
-//    if(sent.value.mode === 'landscape'){
-//      createjs.Ticker.addEventListener("tick", update);
-//    }
-//  });
-//});
+    }
+    if(sent.value.mode === 'landscape'){
+      createjs.Ticker.addEventListener("tick", update);
+    }
+  });
+});
