@@ -6,7 +6,7 @@ var io = require('socket.io')(server);
 app.use(express.logger('dev'));
 app.use(express.compress());
 
-server.listen(5000);
+server.listen(process.env.PORT || 5000);
 
 process.env.PWD = process.cwd()
 app.use(express.static(process.env.PWD));
