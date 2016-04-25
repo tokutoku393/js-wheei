@@ -8,7 +8,8 @@ app.use(express.compress());
 
 server.listen(5000);
 
-app.use(express.static(__dirname));
+process.env.PWD = process.cwd()
+app.use(express.static(process.env.PWD));
 
 io.on('connection', function(socket) {
   socket.join('single');
