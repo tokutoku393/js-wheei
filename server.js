@@ -7,19 +7,16 @@ server.on('request', function(req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
   stream.pipe(res);
 });
-var io = require('socket.io').listen(server);
+//var io = require('socket.io').listen(server);
 server.listen(process.env.PORT || 5000);
 
-io.sockets.on('connection', function(socket) {
-//  socket.emit('greeting', { message: 'hello, '}, function(data) {
-//    console.log('result: ' + data);
-//  });
-  socket.on("mode", function(sent){
-    if(sent.value.mode === 'portrait'){
+//io.sockets.on('connection', function(socket) {
+//  socket.on("mode", function(sent){
+//    if(sent.value.mode === 'portrait'){
       //
-    }
-    if(sent.value.mode === 'landscape'){
-      createjs.Ticker.addEventListener("tick", update);
-    }
-  });
-});
+//    }
+//    if(sent.value.mode === 'landscape'){
+//      createjs.Ticker.addEventListener("tick", update);
+//    }
+//  });
+//});
