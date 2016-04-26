@@ -44,24 +44,7 @@
         createjs.Ticker.addEventListener("tick", update);
       }
     });
-
-//    var milkcocoa = new MilkCocoa("applein31pnvb.mlkcca.com");
-//    var ds = milkcocoa.dataStore('gravity');
-//    ds.on('send', changeViewFromSentMode);
-//    function changeViewFromSentMode(sent){
-//      if(sent.value.mode === 'portrait'){
-
-//      }
-//      if(sent.value.mode === 'landscape'){
-//        createjs.Ticker.addEventListener("tick", update);
-//      }
-//    }
-
-
-
   };
-
-
 
   function init() {
     stats = new Stats();
@@ -156,7 +139,7 @@
     publish.y = canvas.width;
     publish.alpha = 0.6;
 
-    var img = new createjs.Bitmap('boy.png');
+    var img = new createjs.Bitmap('assets/boy.png');
     stage.addChild(img);
     img.x = canvas.width/4;
     img.y = 150;
