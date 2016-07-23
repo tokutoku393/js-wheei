@@ -10,6 +10,8 @@ Node.js + Socket.io
 
 ## routing
 
-`/` メイン画面を表示  
+`/index.html` メイン画面を表示  
 
-`/controller` 携帯側画面を表示  
+`/controller.html` 携帯側画面を表示
+
+(そのうちルーティングする)  
